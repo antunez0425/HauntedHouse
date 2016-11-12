@@ -22,6 +22,13 @@ public class SpookyHauntedHouse
         
         name = JOptionPane.showInputDialog(null, "What is your name", "Player Name", JOptionPane.PLAIN_MESSAGE);
         
+        while(!isAlpha(name))
+        {
+            JOptionPane.showMessageDialog(null, "Your name can only have letters!", "Invalid Name", JOptionPane.ERROR_MESSAGE);
+            
+            name = JOptionPane.showInputDialog(null, "What is your name", "Player Name", JOptionPane.PLAIN_MESSAGE);
+        }
+        
         Player player = new Player(name);
         
         HauntedHouse house = new HauntedHouse();
@@ -31,6 +38,11 @@ public class SpookyHauntedHouse
         ImageIcon icon = new ImageIcon("src/resources/endGame.jpg");
         
         JOptionPane.showMessageDialog(null, "Thank you for playing!", "Game Over", JOptionPane.PLAIN_MESSAGE, icon);
+    }
+    
+    public static boolean isAlpha(String name)
+    {
+        return name.matches("[a-zA-Z]+");
     }
     
 }
