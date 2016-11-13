@@ -569,18 +569,21 @@ public class HauntedHouse
     
     /* BELOW THIS LINE IS HANDLING PLAYER DEATH AND LEAVING THE HOUSE */
     
+    /**
+    * Prints a triumph message, prints inventory, then asks for replay.
+    * @param player The player obj containing name and inventory.
+    */
     public void exitHouse(Player player){
-        int i;
-        
+        int i=0;
         jOpTitle = "Leaving The House";
-        
-        jOpMessage = "You made it out of the haunted house with your life!\n";
-        if (player.getNumItems()==0) jOpMessage += "However, you also left emptyhanded.";
-        else
+        jOpMessage = "You made it out of the haunted house with your life!\n"+
+                     "Here is your loot:\n";
+        do
         {
-            jOpMessage += "And here is your loot:\n";
-            for(i=0;i<player.getNumItems();i++) jOpMessage += (player.getItem(i)+"\n");
-        }
+            if(player.getNumItems() == i) jOpMessage += "Nothing else.\n";
+            else jOpMessage += (player.getItem(i)+"\n");
+            i++;
+        } while(i<=player.getNumItems());
         
         icon = new ImageIcon("src/resources/HauntedHouse.jpg");
         
@@ -589,6 +592,10 @@ public class HauntedHouse
         askForReplay(player);
     }
     
+    /**
+    * Prints the death message and goes to ask for replay.
+    * @param player The player obj containing name and inventory.
+    */
     public void killPlayer(Player player){
         jOpTitle = "YOU DIED";
         jOpMessage = "You have succumbed to the\n"+
@@ -600,6 +607,10 @@ public class HauntedHouse
         askForReplay(player);
     }
     
+    /**
+    * Clears the player's inventory if yes and then puts them at the intro. Exits if no.
+    * @param player The player obj containing name and inventory.
+    */
     public void askForReplay(Player player){
         jOpTitle = "Play Again?";
         jOpMessage = "Would you like to play again?";
