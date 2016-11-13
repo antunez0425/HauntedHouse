@@ -31,7 +31,7 @@ public class SpookyHauntedHouse
         String name;
         name = JOptionPane.showInputDialog(null, "What is your name?", "Player Name Entry", JOptionPane.PLAIN_MESSAGE);
         
-        if(name == null) // In the event of cancelling the name input.
+        if(name==null || name.isEmpty())// In the event of cancelling the name input.
         {
             name = "Anonymous Player";
             JOptionPane.showMessageDialog(null, "No name? Very well, then.");
@@ -41,6 +41,12 @@ public class SpookyHauntedHouse
         {
             JOptionPane.showMessageDialog(null, "That doesn't look like a name to me.", "Invalid Name", JOptionPane.ERROR_MESSAGE);
             name = JOptionPane.showInputDialog(null, "What is your name?", "Player Name Entry", JOptionPane.PLAIN_MESSAGE);
+            
+            if(name==null || name.isEmpty())// In the event of cancelling the name input.
+            {
+                name = "Anonymous Player";
+                JOptionPane.showMessageDialog(null, "No name? Very well, then.");
+            }
         }
         
         // ---------- Generating the player and world, then starting the game
