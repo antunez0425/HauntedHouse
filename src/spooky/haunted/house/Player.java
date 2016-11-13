@@ -103,10 +103,17 @@ public class Player
      * Tries to remove an item via contains(). Failures printed to System.out.
      * @param item Item string to attempt removal.
      */
-    public void removeitem(String item)
+    public void removeItem(String item)
     {
         boolean containedItem = playerItems.remove(item);
         if(!containedItem) System.out.println("Error: attempted to remove an invalid item named \"" + item + "\"!");
+    }
+    
+    /**
+     * Empties the player's inventory.
+     */
+    public void emptyInventory(){
+        playerItems.clear();
     }
     
     /**
@@ -116,7 +123,7 @@ public class Player
      */
     public String getItem(int idx)
     {
-        if(idx>playerItems.size() && idx>=0) return playerItems.get(idx);
+        if(isValidIdx(idx)) return playerItems.get(idx);
         
         System.out.println("Error: attempted to get invalid item at idx " + idx);
         return "INVALID ITEM";
@@ -128,6 +135,15 @@ public class Player
      */
     public int getNumItems(){
         return playerItems.size();
+    }
+    
+    /**
+     * Checks with contains() to see if the player has an item.
+     * @param item The string being checked for containing.
+     * @return If the player has that item-string.
+     */
+    public boolean hasItem(String item){
+        return playerItems.contains(item);
     }
     
     //Private sanity checks used for bounds checking.

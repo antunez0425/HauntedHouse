@@ -52,7 +52,7 @@ public class SpookyHauntedHouse
         // ---------- Generating the player and world, then starting the game
         Player player = new Player(name);
         HauntedHouse house = new HauntedHouse();
-        house.frontDoor(player);
+        house.intro(player);
         
         // ---------- End of game.
         ImageIcon icon = new ImageIcon("src/resources/endGame.jpg");
