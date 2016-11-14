@@ -648,7 +648,7 @@ public class HauntedHouse
         jOpMessage = player + "\n\nYou are in the master bedroom\nThere is a jewelry box\nThere is also a door leading to the master bathroom";
 
         choices = new String[]{
-            "Open the jewelry box", "Go to the master bathroom", "Go back to the hallway"
+            "Open the jewelry box", "Blatantly dangerous light socket", "Go to the master bathroom", "Go back to the hallway"
         };
 
         icon = new ImageIcon("src/resources/masterBedroom.jpg");
@@ -660,9 +660,12 @@ public class HauntedHouse
                 jewelryBox(player);
                 break;
             case 1:
-                masterBathroom(player);
+                lightSocket(player);
                 break;
             case 2:
+                masterBathroom(player);
+                break;
+            case 3:
                 upstairs(player);
                 break;
         }
@@ -689,7 +692,23 @@ public class HauntedHouse
         
         masterBedroom(player);
     }
+    
+    /**
+     * Item method (Light Socket).
+     * Kills the player because nothing else on Floor 2 does.
+     * @param player the Player obj that has the name and inventory
+     */
+    public void lightSocket(Player player)
+    {
+        jOpTitle = "Bzzt.";
+        jOpMessage = "You poke a conveniently supplied fork\n"+
+                     "into the obviously dead light socket.\n"+
+                     "It electrocutes you anyways.";
+        icon = new ImageIcon("src/resources/forkSocket.jpg");
 
+        JOptionPane.showMessageDialog(null, jOpMessage, jOpTitle, JOptionPane.PLAIN_MESSAGE, icon);
+        killPlayer(player);
+    }
     /**
      * Room method (Master Bathroom) has two items
      * @param player the Player obj that has the name and inventory
