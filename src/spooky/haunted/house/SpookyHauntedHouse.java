@@ -14,7 +14,9 @@ import javax.swing.JOptionPane;
 import javax.swing.ImageIcon;
 
 /**
- *
+ * Gets player name, and initializes the world. Contains a regex-based check to
+ * ensure that the player's name is actually a likely name for most Western
+ * naming schemes. CJK and non-Latin support to be supported soon(tm).
  * @author 3723641
  * @author 5441904
  */
