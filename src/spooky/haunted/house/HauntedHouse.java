@@ -560,13 +560,14 @@ public class HauntedHouse
     {
         icon = new ImageIcon("src/resources/ghostDresser.jpg");
         JOptionPane.showMessageDialog(null, "You open the dresser and a ghost flies out and passes and steals all of your items!", "Dresser", JOptionPane.PLAIN_MESSAGE, icon);
-        if(player.getNumItems() == 0)
+        int invCount = player.getNumItems();
+        if(invCount == 0)
         {
             JOptionPane.showMessageDialog(null, "But you don't have anything!", "Dresser", JOptionPane.PLAIN_MESSAGE, icon);
         }
         else
         {
-            for(int i = 0; i < player.getNumItems(); i++)
+            for(int i = 0; i < invCount; i++)
             {
                 JOptionPane.showMessageDialog(null, "You lost the " + player.getItem(0) + "!", "Dresser", JOptionPane.PLAIN_MESSAGE, icon);
                 player.removeItem(0);
