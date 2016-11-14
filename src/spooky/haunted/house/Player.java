@@ -28,6 +28,7 @@ public class Player
 {
     private String name;
     private ArrayList<String> playerItems = new ArrayList<>();
+    private ArrayList<String> playerTaken = new ArrayList<>();
     
     /**
      * Null constructor; avoid use. Sets name to "Unset."
@@ -85,7 +86,10 @@ public class Player
      */
     public void addItem(String item)
     {
-        if(isValidStr(item)) playerItems.add(item);
+        if(isValidStr(item)){
+            playerItems.add(item);
+            playerTaken.add(item);
+        }
         else System.out.println("Error: attempted to make a null/empty item!");
     }
     
@@ -114,6 +118,7 @@ public class Player
      */
     public void emptyInventory(){
         playerItems.clear();
+        playerTaken.clear();
     }
     
     /**
@@ -144,6 +149,15 @@ public class Player
      */
     public boolean hasItem(String item){
         return playerItems.contains(item);
+    }
+    
+    /**
+     * Checks with contains() to see if the player ever taken an item.
+     * @param item The string being checked for containing.
+     * @return If the player has that item-string.
+     */
+    public boolean hasTakenItem(String item){
+        return playerTaken.contains(item);
     }
     
     //Private sanity checks used for bounds checking.
