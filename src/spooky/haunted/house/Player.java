@@ -1,5 +1,5 @@
 //******************************************************************************
-// PantherIDs: [Put yours here]
+// PantherIDs: 5441904
 //             3723741
 // CLASS:      COP2210-2016
 // ASSIGNMENT  #4
@@ -21,7 +21,7 @@ import java.util.ArrayList;
  * for some godforsaken reason you need to do this, it should be easy enough to
  * hack out the bounds checking.
  * 
- * @author antun
+ * @author 5441904
  * @author 3723641
  */
 public class Player

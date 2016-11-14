@@ -1,5 +1,5 @@
 //******************************************************************************
-// PantherIDs: [Put yours here]
+// PantherIDs: 5441904
 //             3723741
 // CLASS:      COP2210-2016
 // ASSIGNMENT  #4
@@ -16,7 +16,7 @@ import javax.swing.ImageIcon;
 /**
  *
  * @author 3723641
- * @author antun
+ * @author 5441904
  */
 public class SpookyHauntedHouse
 {
