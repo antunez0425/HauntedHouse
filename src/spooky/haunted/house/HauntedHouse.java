@@ -317,7 +317,7 @@ public class HauntedHouse
     public void refrigerator(Player player)
     {
         jOpTitle = "Refrigerator";
-        if (player.hasItem("Soul Food")) {
+        if (player.hasTakenItem("Soul Food")) {
             jOpMessage = "The refrigerator is empty.";
             icon = new ImageIcon("src/resources/emptyFridge.jpg");
         } else {
@@ -380,7 +380,7 @@ public class HauntedHouse
     public void recipeBox(Player player)
     {
         jOpTitle = "Dusty Recipe Box";
-        if (player.hasItem("Cake Recipe")) {
+        if (player.hasTakenItem("Cake Recipe")) {
             jOpMessage = "You already took the recipe.";
         } else {
             jOpMessage = "You open the box and a recipe for\n"
@@ -674,7 +674,7 @@ public class HauntedHouse
      */
     public void jewelryBox(Player player)
     {
-        if(player.hasItem("Hope Diamond"))
+        if(player.hasTakenItem("Hope Diamond"))
         {
             icon = new ImageIcon("src/resources/jewelryBox.jpg");
             JOptionPane.showMessageDialog(null, "It's an empty jewelry box...", "Jewelry Box", JOptionPane.PLAIN_MESSAGE, icon);
@@ -725,8 +725,21 @@ public class HauntedHouse
      */
     public void lamp(Player player)
     {
-        icon = new ImageIcon("src/resources/genie.jpg");
-        JOptionPane.showMessageDialog(null, "You rub the lamp and a genie comes out says he'll grant you 3 wishes", "Rub The Lamp", JOptionPane.PLAIN_MESSAGE, icon);
+        if(player.hasTakenItem("Voucher for three wishes"))
+        {
+            icon = new ImageIcon("src/resources/threeWishes.jpg");
+            jOpMessage = "You already got your voucher for three wishes.";
+        }
+        else
+        {
+            icon = new ImageIcon("src/resources/genie.jpg");
+            jOpMessage = "You rub the lamp and a genie comes out says he'll grant you 3 wishes";
+            player.addItem("Voucher for three wishes");
+        }
+        
+        
+        
+        JOptionPane.showMessageDialog(null, jOpMessage, "Rub The Lamp", JOptionPane.PLAIN_MESSAGE, icon);
         masterBathroom(player);
     }
 
